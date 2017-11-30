@@ -5,3 +5,5 @@ TemporaryGeneratedFile_*.*
 *.CopyComplete
 *.cache
 *.FileListAbsolute.*
+*.sqlite
+*.sou
