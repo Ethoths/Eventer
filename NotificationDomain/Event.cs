@@ -8,71 +8,93 @@ namespace NotificationDomain
     {
         private readonly List<Attendance> _attendances;
         
-        public bool IsContinuous()
+        //public bool IsContinuous()
+        //{
+        //    var start = _attendances.OrderBy(a => a.Arrival).ThenByDescending(a => a.Departure).First();
+        //    var end = _attendances.OrderBy(a => a.Departure).Last().Departure;
+        //
+        //    return NextContinuousAttandance(Attendances, start, end);
+        //}
+        //
+        //private static bool NextContinuousAttandance(ICollection<Attendance> attendances, Attendance attendance, DateTime end)
+        //{
+        //    attendances.Remove(attendance);
+        //
+        //    if (attendance.Departure == end)
+        //    {
+        //        return true;
+        //    }
+        //
+        //    var start = attendances.Where(a => a.Arrival <= attendance.Departure).OrderBy(a => a.Departure).LastOrDefault();
+        //
+        //    return start != null && NextContinuousAttandance(attendances, start, end);
+        //}
+
+        //public bool IsContinuous(Endorsement endorsement)
+        //{
+        //    var attendances = new List<Attendance>(_attendances);
+        //
+        //    foreach (var a in Attendances)
+        //    {
+        //        if (!a.User.HasEndorsement(endorsement))
+        //        {
+        //            attendances.Remove(a);
+        //        }
+        //    }
+        //
+        //    var start = _attendances.OrderBy(a => a.Arrival).ThenByDescending(a => a.Departure).First();
+        //    var end = _attendances.OrderBy(a => a.Departure).Last().Departure;
+        //
+        //    if (start == null)
+        //    {
+        //        return false;
+        //    }
+        //    else
+        //    {
+        //        return NextContinuousAttandance(attendances, endorsement, start, end);
+        //    }
+        //}
+
+        //private static bool NextContinuousAttandance(ICollection<Attendance> attendances, Endorsement endorsement, Attendance attendance, DateTime end)
+        //{      
+        //    attendances.Remove(attendance);
+        //
+        //    if (attendance.Departure == end)
+        //    {
+        //        return true;
+        //    }
+        //
+        //    var start = attendances.Where(a => a.Arrival <= attendance.Departure).OrderBy(a => a.Departure).LastOrDefault();
+        //
+        //    if (start == null)
+        //    {
+        //        return false;
+        //    }
+        //    else
+        //    {
+        //        return NextContinuousAttandance(attendances, start, end);
+        //    }
+        //}
+
+        public List<Thingy> GetThingys
         {
-            var start = _attendances.OrderBy(a => a.Arrival).ThenByDescending(a => a.Departure).First();
-            var end = _attendances.OrderBy(a => a.Departure).Last().Departure;
-
-            return NextContinuousAttandance(Attendances, start, end);
-        }
-
-        private static bool NextContinuousAttandance(ICollection<Attendance> attendances, Attendance attendance, DateTime end)
-        {
-            attendances.Remove(attendance);
-
-            if (attendance.Departure == end)
+            get
             {
-                return true;
-            }
+                var thingys = new List<Thingy>();
 
-            var start = attendances.Where(a => a.Arrival <= attendance.Departure).OrderBy(a => a.Departure).LastOrDefault();
-
-            return start != null && NextContinuousAttandance(attendances, start, end);
-        }
-
-        public bool IsContinuous(Endorsement endorsement)
-        {
-            var attendances = new List<Attendance>(_attendances);
-
-            foreach (var a in Attendances)
-            {
-                if (!a.User.HasEndorsement(endorsement))
+                foreach (var endorsement in Location.Endorsements)
                 {
-                    attendances.Remove(a);
+                    var thingy = new Thingy(endorsement);
+
+                    foreach (var attandance in _attendances.Where(a => a.User.Endorsements.Any(s => s.Name == endorsement.Name)))
+                    {
+                        thingy.Periods.Add(new Period(attandance.User, attandance.Arrival, attandance.Departure));
+                    }
+
+                    thingys.Add(thingy);
                 }
-            }
 
-            var start = _attendances.OrderBy(a => a.Arrival).ThenByDescending(a => a.Departure).First();
-            var end = _attendances.OrderBy(a => a.Departure).Last().Departure;
-
-            if (start == null)
-            {
-                return false;
-            }
-            else
-            {
-                return NextContinuousAttandance(attendances, endorsement, start, end);
-            }
-        }
-
-        private static bool NextContinuousAttandance(ICollection<Attendance> attendances, Endorsement endorsement, Attendance attendance, DateTime end)
-        {      
-            attendances.Remove(attendance);
-
-            if (attendance.Departure == end)
-            {
-                return true;
-            }
-
-            var start = attendances.Where(a => a.Arrival <= attendance.Departure).OrderBy(a => a.Departure).LastOrDefault();
-
-            if (start == null)
-            {
-                return false;
-            }
-            else
-            {
-                return NextContinuousAttandance(attendances, start, end);
+                return thingys;
             }
         }
 
@@ -131,6 +153,36 @@ namespace NotificationDomain
 
             _attendances = new List<Attendance>(attendancesArray);
             Location = location;
+        }
+    }
+
+    public class Thingy
+    {
+        public Endorsement Endorsement { get; private set; }
+
+        public List<Period> Periods { get; private set; }
+
+        public Thingy(Endorsement endorsement)
+        {
+            Endorsement = endorsement;
+
+            Periods = new List<Period>();
+        }
+    }
+
+    public class Period
+    {
+        public User User { get; set; }
+
+        public DateTime Start { get; private set; }
+
+        public DateTime End { get; private set; }
+
+        public Period(User user, DateTime start, DateTime end)
+        {
+            User = user;
+            Start = start;
+            End = end;
         }
     }
 }

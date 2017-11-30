@@ -6,6 +6,10 @@
 
         public Endorsement Parent { get; private set; }
 
+        public Endorsement(string name) : this(name, null)
+        {
+        }
+
         public Endorsement(string name, Endorsement parent)
         {
             Name = name;

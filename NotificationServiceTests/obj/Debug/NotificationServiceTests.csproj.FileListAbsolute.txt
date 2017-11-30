@@ -3,3 +3,9 @@ C:\Projects\Eventer\NotificationServiceTests\bin\Debug\NotificationServiceTests.
 C:\Projects\Eventer\NotificationServiceTests\obj\Debug\NotificationServiceTests.csproj.CoreCompileInputs.cache
 C:\Projects\Eventer\NotificationServiceTests\obj\Debug\NotificationServiceTests.dll
 C:\Projects\Eventer\NotificationServiceTests\obj\Debug\NotificationServiceTests.pdb
+C:\Users\micro\Documents\GitHub\Eventer\NotificationServiceTests\bin\Debug\NotificationServiceTests.dll
+C:\Users\micro\Documents\GitHub\Eventer\NotificationServiceTests\bin\Debug\NotificationServiceTests.pdb
+C:\Users\micro\Documents\GitHub\Eventer\NotificationServiceTests\obj\Debug\NotificationServiceTests.csproj.CoreCompileInputs.cache
+C:\Users\micro\Documents\GitHub\Eventer\NotificationServiceTests\obj\Debug\NotificationServiceTests.dll
+C:\Users\micro\Documents\GitHub\Eventer\NotificationServiceTests\obj\Debug\NotificationServiceTests.pdb
+C:\Users\micro\Documents\GitHub\Eventer\NotificationServiceTests\obj\Debug\NotificationServiceTests.csprojResolveAssemblyReference.cache

@@ -4,3 +4,9 @@ C:\Projects\Eventer\NotificationDomain\obj\Debug\NotificationDomain.csproj.CoreC
 C:\Projects\Eventer\NotificationDomain\obj\Debug\NotificationDomain.dll
 C:\Projects\Eventer\NotificationDomain\obj\Debug\NotificationDomain.pdb
 C:\Projects\Eventer\NotificationDomain\obj\Debug\NotificationDomain.csprojResolveAssemblyReference.cache
+C:\Users\micro\Documents\GitHub\Eventer\NotificationDomain\bin\Debug\NotificationDomain.dll
+C:\Users\micro\Documents\GitHub\Eventer\NotificationDomain\bin\Debug\NotificationDomain.pdb
+C:\Users\micro\Documents\GitHub\Eventer\NotificationDomain\obj\Debug\NotificationDomain.csproj.CoreCompileInputs.cache
+C:\Users\micro\Documents\GitHub\Eventer\NotificationDomain\obj\Debug\NotificationDomain.dll
+C:\Users\micro\Documents\GitHub\Eventer\NotificationDomain\obj\Debug\NotificationDomain.pdb
+C:\Users\micro\Documents\GitHub\Eventer\NotificationDomain\obj\Debug\NotificationDomain.csprojResolveAssemblyReference.cache
