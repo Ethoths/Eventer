@@ -1,0 +1,6 @@
+C:\Projects\Eventer\NotificationDomain\bin\Debug\NotificationDomain.dll
+C:\Projects\Eventer\NotificationDomain\bin\Debug\NotificationDomain.pdb
+C:\Projects\Eventer\NotificationDomain\obj\Debug\NotificationDomain.csproj.CoreCompileInputs.cache
+C:\Projects\Eventer\NotificationDomain\obj\Debug\NotificationDomain.dll
+C:\Projects\Eventer\NotificationDomain\obj\Debug\NotificationDomain.pdb
+C:\Projects\Eventer\NotificationDomain\obj\Debug\NotificationDomain.csprojResolveAssemblyReference.cache
